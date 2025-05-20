@@ -1,0 +1,96 @@
+{
+  "name": "recipe",
+  "schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Recipe",
+    "type": "object",
+    "required": [
+      "title",
+      "ingredients",
+      "steps"
+    ],
+    "properties": {
+      "title": {
+        "type": "string"
+      },
+      "description": {
+        "type": "string"
+      },
+      "author": {
+        "type": "string"
+      },
+      "prepTime": {
+        "type": "string"
+      },
+      "cookTime": {
+        "type": "string"
+      },
+      "totalTime": {
+        "type": "string"
+      },
+      "yield": {
+        "type": "string"
+      },
+      "ingredients": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "steps": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": [
+            "description"
+          ],
+          "properties": {
+            "description": {
+              "type": "string"
+            },
+            "image": {
+              "type": "string",
+              "format": "uri"
+            },
+            "duration": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "image": {
+        "type": "string",
+        "format": "uri"
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "nutrition": {
+        "type": "object",
+        "properties": {
+          "calories": {
+            "type": "string"
+          },
+          "fatContent": {
+            "type": "string"
+          },
+          "carbohydrateContent": {
+            "type": "string"
+          },
+          "proteinContent": {
+            "type": "string"
+          },
+          "fiberContent": {
+            "type": "string"
+          },
+          "sugarContent": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
