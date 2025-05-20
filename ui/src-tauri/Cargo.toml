@@ -26,3 +26,4 @@ tauri-plugin-http = "2"
 llm = { version = "1.2.5", features = ["ollama"] }
 tokio = "1.45.0"
 schemars = "0.8.22"
+strange-sandwich-core = { version = "0.1.0", path = "../core" }

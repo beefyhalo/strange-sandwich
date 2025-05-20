@@ -4401,11 +4401,20 @@ dependencies = [
  "schemars",
  "serde",
  "serde_json",
+ "strange-sandwich-core",
  "tauri",
  "tauri-build",
  "tauri-plugin-http",
  "tauri-plugin-opener",
  "tokio",
+]
+
+[[package]]
+name = "strange-sandwich-core"
+version = "0.1.0"
+dependencies = [
+ "schemars",
+ "serde",
 ]
 
 [[package]]
@@ -4428,6 +4437,7 @@ dependencies = [
  "console_error_panic_hook",
  "serde",
  "serde-wasm-bindgen",
+ "strange-sandwich-core",
  "sycamore",
  "wasm-bindgen",
  "wasm-bindgen-futures",
