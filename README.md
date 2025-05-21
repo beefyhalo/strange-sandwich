@@ -12,14 +12,13 @@ Strange Sandwich is a demo project showcasing a modern Rust full-stack setup:
 ## ✨ Features
 - 🥒 Enter sandwich ingredients and generate creative sandwich recipes using an LLM
 - 🎉 Beautiful, responsive UI with Tailwind CSS and heropattern backgrounds
-- 🖥️ Desktop app experience powered by Tauri
+- 🖥️ Desktop and Mobile app experience powered by Tauri
 - 🦀 All written in Rust (frontend and backend)
 
 ## 🚀 Getting Started
 
 ### 🧰 Prerequisites
 - [Rust](https://rustup.rs/) (nightly may be required for Sycamore)
-- [Node.js](https://nodejs.org/) and npm (for Tailwind CSS)
 - [Ollama](https://ollama.com/) (for local LLM)
 - [Tauri CLI](https://tauri.app/v1/guides/getting-started/prerequisites/)
 
