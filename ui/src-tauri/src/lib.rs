@@ -6,7 +6,6 @@ use llm::{
 use schemars::schema_for;
 use strange_sandwich_core::Recipe;
 
-
 #[tauri::command]
 async fn greet(name: &str, llm: tauri::State<'_, Box<dyn LLMProvider>>) -> Result<Recipe, String> {
     let prompt = format!(
@@ -22,7 +21,7 @@ async fn greet(name: &str, llm: tauri::State<'_, Box<dyn LLMProvider>>) -> Resul
                 .map_err(|e| format!("Failed to parse JSON: {}", e))?;
             println!("Generated recipe: {:?}", recipe);
             Ok(recipe)
-        },
+        }
         Err(e) => Err(format!("Chat error: {}", e)),
     }
 }
@@ -41,17 +40,18 @@ pub fn run() {
     let llm = LLMBuilder::new()
         .backend(LLMBackend::Ollama)
         .model("smollm2:latest")
-        .max_tokens(1000)
+        .max_tokens(500)
         // .temperature(0.7)
         .stream(false)
         .schema(schema)
         .system("You are a helpful AI assistant. Please generate strange sandwich recipes using the provided JSON schema. 
-                 Make the recipe as strange as creative as possible. The ingredients should be unusual and the steps should be unique.
+                 Make the recipe as bizarre, strange as creative as possible. The ingredients should be unusual and the steps should be unique.
                  The tone should be humorous and light-hearted. Don't worry about the practicality of the recipe. Focus on making it fun and entertaining.
+                 The recipe should include an article written as the author, as a kind of parody of recipe articles found on websites. Go into detail about the sandwich, its history, and act strangely.
                  Ensure that the recipe is in JSON format and follows the provided schema.
                  Ensure that the user's input is included in the recipe.")
         .build()
-        .expect("Failed to build LLM (Ollama)");
+        .expect("Failed to build LLM");
 
     tauri::Builder::default()
         .manage(llm)

@@ -1,12 +1,11 @@
-
-use schemars::{JsonSchema};
+use schemars::JsonSchema;
 
 use serde::{Deserialize, Serialize};
 
 #[derive(JsonSchema, Serialize, Deserialize, Default, Debug, Clone)]
 pub struct Recipe {
     pub title: String,
-    pub description: Option<String>,
+    pub description: String,
     pub author: Option<String>,
 
     pub prep_time: Option<String>,    // ISO 8601 (e.g. PT30M)
@@ -14,6 +13,7 @@ pub struct Recipe {
     pub total_time: Option<String>,   // ISO 8601
     pub yield_amount: Option<String>, // e.g. "4 servings"
 
+    pub article: Option<String>,
     pub ingredients: Vec<String>,
     pub steps: Vec<RecipeStep>,
 
