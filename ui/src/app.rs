@@ -32,18 +32,42 @@ pub fn App() -> View {
     }));
 
     view! {
-        main(class="@container grid mx-auto p-4") {
-            h1(class="text-3xl font-bold text-center mb-4") { "Strange Sandwich" }
-            form(class="row", on:submit=move |e:SubmitEvent| {e.prevent_default(); trigger.set(())}) {
-                input(id="search-input", bind:value=name, placeholder="Search...")
-                button(class="btn-primary", r#type="submit") { "Submit" }
+        main(class="container w-full min-h-2 mx-auto bg-hero-i-like-food") {
+
+            div(class="sticky top-0 opacity-75 z-10 bg-white/90 backdrop-blur shadow px-6 py-4 border-b border-gray-200") {
+                h1(class="text-3xl font-bold text-center text-indigo-700 mb-2") {
+                    "Strange Sandwich"
+                }
+
+                form(class="flex items-center gap-4", on:submit=move |e: SubmitEvent| {
+                    e.prevent_default();
+                    trigger.set(());
+                }) {
+                    input(
+                        id="search-input",
+                        class="flex-1 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500",
+                        bind:value=name,
+                        placeholder="Search for a sandwich idea..."
+                    )
+                    button(
+                        class="px-6 py-2 text-white bg-indigo-600 rounded-lg hover:bg-indigo-700 transition",
+                        r#type="submit"
+                    ) {
+                        "Submit"
+                    }
+                }
             }
-            Suspense(fallback=|| view! { "Loading..." }) {
-                (if let Some(recipe) = recipe.get_clone() {
-                    RecipeView(recipe)
-                } else {
-                    view! {}
-                })
+
+            div(class="px-6 py-6 space-y-6") {
+                Suspense(fallback=|| view! {
+                    div(class="text-center text-gray-500 italic") { "Loading..." }
+                }) {
+                    (if let Some(recipe) = recipe.get_clone() {
+                        RecipeView(recipe)
+                    } else {
+                        view! {}
+                    })
+                }
             }
         }
     }
