@@ -25,7 +25,7 @@ pub struct Recipe {
 #[derive(JsonSchema, Serialize, Deserialize, Debug, Clone, PartialEq)]
 pub struct RecipeStep {
     pub description: String,
-    pub image: Option<String>,    // URL
+    // pub image: Option<String>,    // URL
     pub duration: Option<String>, // ISO 8601 (e.g. PT10M)
 }
 

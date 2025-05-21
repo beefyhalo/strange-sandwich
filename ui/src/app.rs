@@ -129,11 +129,11 @@ fn RecipeView(recipe: Recipe) -> View {
                             li {
                                 div {
                                     (step.description)
-                                    (if let Some(img) = step.image {
-                                        view! {
-                                            img(src=img, class="mt-3 rounded-lg shadow-md")
-                                        }
-                                    } else { view! {} })
+                                    // (if let Some(img) = step.image {
+                                    //     view! {
+                                    //         img(src=img, class="mt-3 rounded-lg shadow-md")
+                                    //     }
+                                    // } else { view! {} })
                                 }
                             }
                         }
